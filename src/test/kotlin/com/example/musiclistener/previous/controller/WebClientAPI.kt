@@ -1,6 +1,6 @@
-package com.example.musiclistener.controller
+package com.example.musiclistener.previous.controller
 
-import com.example.musiclistener.model.MusicPlayerModel
+import com.example.musiclistener.previous.model.MusicPlayerModel
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Flux
 

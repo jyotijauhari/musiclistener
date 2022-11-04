@@ -1,4 +1,4 @@
-package com.example.musiclistener.model
+package com.example.musiclistener.previous.model
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import java.util.*

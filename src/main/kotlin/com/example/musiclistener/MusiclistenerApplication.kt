@@ -1,6 +1,4 @@
 package com.example.musiclistener
-
-import com.example.musiclistener.controller.WebClientAPI
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.util.MultiValueMap
@@ -15,8 +13,8 @@ class MusiclistenerApplication
 fun main(args: Array<String>) {
 	runApplication<MusiclistenerApplication>(*args)
 
-	val api = WebClientAPI()
-
-	api.getAllSongs()
-		.subscribe()
+//	val api = WebClientAPI()
+//
+//	api.getAllSongs()
+//		.subscribe()
 }
