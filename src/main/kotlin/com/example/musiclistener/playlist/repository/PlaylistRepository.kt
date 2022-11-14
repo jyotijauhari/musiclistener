@@ -1,12 +1,10 @@
 package com.example.musiclistener.playlist.repository
 
 import com.example.musiclistener.playlist.model.Playlist
-import com.example.musiclistener.playlist.model.PlaylistSongs
 import org.springframework.data.r2dbc.repository.Query
 import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
-import java.sql.Date
 
 interface PlaylistRepository : ReactiveCrudRepository<Playlist,Int> {
 

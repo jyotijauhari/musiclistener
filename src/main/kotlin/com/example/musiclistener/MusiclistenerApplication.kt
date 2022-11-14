@@ -12,9 +12,4 @@ class MusiclistenerApplication
 
 fun main(args: Array<String>) {
 	runApplication<MusiclistenerApplication>(*args)
-
-//	val api = WebClientAPI()
-//
-//	api.getAllSongs()
-//		.subscribe()
 }

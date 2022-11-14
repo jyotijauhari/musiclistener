@@ -1,9 +1,9 @@
 package com.example.musiclistener.playlist.controller
-
 import com.example.musiclistener.playlist.model.Playlist
+import com.example.musiclistener.playlist.model.PlaylistWithSongs
 import com.example.musiclistener.playlist.services.PlaylistService
-import com.example.musiclistener.playlist.services.PlaylistSongsService
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Flux
@@ -19,16 +19,9 @@ class PlaylistController(
         return playlistService.getAllPlaylist();
     }
 
-    @GetMapping("/name")
-    fun abcd(): Mono<Playlist> {
-        println("in abcd")
-        return playlistService.getPlaylistByName()
-    }
-
-    @GetMapping("/allname")
-    fun pqrs(): Flux<Playlist> {
-        println("in pqrs")
-        return playlistService.getAllPlaylistByName()
+    @GetMapping("/{id}")
+    fun getPlaylistDetails(@PathVariable id:Int): Mono<PlaylistWithSongs> {
+         return playlistService.getPlaylistDetails(id);
     }
 
 }

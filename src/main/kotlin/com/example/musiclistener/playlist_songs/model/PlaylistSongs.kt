@@ -1,4 +1,4 @@
-package com.example.musiclistener.playlist.model
+package com.example.musiclistener.playlist_songs.model
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table

@@ -1,6 +1,6 @@
 package com.example.musiclistener.playlist.services
 
-import com.example.musiclistener.playlist.model.PlaylistSongs
+import com.example.musiclistener.playlist_songs.model.PlaylistSongs
 import com.example.musiclistener.playlist.repository.PlaylistSongsRepository
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux

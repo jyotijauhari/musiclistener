@@ -1,6 +1,6 @@
 package com.example.musiclistener.playlist.controller
 
-import com.example.musiclistener.playlist.model.PlaylistSongs
+import com.example.musiclistener.playlist_songs.model.PlaylistSongs
 import com.example.musiclistener.playlist.services.PlaylistSongsService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

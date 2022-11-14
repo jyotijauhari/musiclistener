@@ -3,3 +3,8 @@ spring:
     url: "r2dbc:postgresql://localhost:5432/musiclistener"
     username: postgres
     password: postgres
+
+
+app:
+  musicplayer:
+    baseurl: http://localhost:8081
