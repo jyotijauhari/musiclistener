@@ -1,4 +1,4 @@
-package com.example.musiclistener.playlist.controller
+package com.example.musiclistener.playlist_songs.controller
 
 import com.example.musiclistener.playlist_songs.model.PlaylistSongs
 import com.example.musiclistener.playlist_songs.services.PlaylistSongsService

@@ -1,4 +1,4 @@
-package com.example.musiclistener.playlist.repository
+package com.example.musiclistener.playlist_songs.repository
 
 import com.example.musiclistener.playlist_songs.model.PlaylistSongs
 import org.springframework.data.r2dbc.repository.Query

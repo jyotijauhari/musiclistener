@@ -22,7 +22,7 @@ class PlaylistService(
         val songIds = playlistSongsService.getSongsId(playlistId)
         val api = WebClientAPI()
         val playlist = getPlaylistById(playlistId)
-        val allSongs = songIds.flatMap { id -> api.getSongById(id) }
+        songIds.flatMap { id -> api.getSongById(id) }
         val allSongsList = songIds.flatMap { id -> api.getSongById(id) }.collectList()
 
         return playlist.zipWith(allSongsList) { t1, t2 -> PlaylistWithSongs(t1.id, t1.name, t1.created_at, t2) }

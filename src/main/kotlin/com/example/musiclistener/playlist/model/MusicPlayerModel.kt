@@ -10,5 +10,4 @@ data class MusicPlayerModel(
     val language: String,
     @field:JsonFormat(pattern = "yyyy-MM-dd")
     val releaseDate: Date,
-) {
-}
+)
