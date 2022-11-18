@@ -4,7 +4,11 @@ spring:
     username: postgres
     password: postgres
 
+server:
+  error:
+    include-message: always
 
 app:
   musicplayer:
     baseurl: http://localhost:8081
+
