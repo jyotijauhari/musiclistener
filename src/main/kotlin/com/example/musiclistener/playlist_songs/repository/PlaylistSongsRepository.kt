@@ -4,6 +4,7 @@ import com.example.musiclistener.playlist_songs.model.PlaylistSongs
 import org.springframework.data.r2dbc.repository.Query
 import org.springframework.data.repository.reactive.ReactiveCrudRepository
 import reactor.core.publisher.Flux
+import reactor.core.publisher.Mono
 
 interface PlaylistSongsRepository : ReactiveCrudRepository<PlaylistSongs,Int> {
 
@@ -11,5 +12,6 @@ interface PlaylistSongsRepository : ReactiveCrudRepository<PlaylistSongs,Int> {
     fun findSongIdsByPlaylistId(pid:Int): Flux<PlaylistSongs>
 
     fun findAllByPlaylistId(playlistId: Int) : Flux<PlaylistSongs>
+    fun findByPlaylistIdAndSongId(playlistId: Int, songId: Int): Mono<PlaylistSongs>
 
 }

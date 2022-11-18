@@ -2,6 +2,8 @@ package com.example.musiclistener.playlist.services
 import com.example.musiclistener.playlist.controller.WebClientAPI
 import com.example.musiclistener.playlist.model.*
 import com.example.musiclistener.playlist.repository.PlaylistRepository
+import com.example.musiclistener.playlist_songs.model.PlaylistSongs
+import com.example.musiclistener.playlist_songs.services.PlaylistSongsService
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
@@ -28,6 +30,10 @@ class PlaylistService(
 
     fun getPlaylistById(playlistId: Int): Mono<Playlist> {
         return playlistRepository.findById(playlistId)
+    }
+
+    fun deleteSongFromPlaylist(playlistId: Int, songId: Int): Mono<Void> {
+        return playlistSongsService.deleteSongFromPlaylist(playlistId, songId)
     }
 
 }
