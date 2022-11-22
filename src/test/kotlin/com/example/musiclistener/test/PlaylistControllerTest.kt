@@ -26,19 +26,13 @@ class PlaylistControllerTest {
     @Test
     fun whenRequestToGetPlaylistWithValidPlaylistId_thenStatusShouldBeOk() {
         val id = 2
-        webTestClient.get()
-            .uri("/playlist/$id")
-            .exchange()
-            .expectStatus().isOk
+        webTestClient.get().uri("/playlist/$id").exchange().expectStatus().isOk
     }
 
     @Test
     fun whenRequestToGetPlaylistWithInvalidPlaylistId_thenStatusShouldBe404PageNotFoundError() {
         val id = 9
-        webTestClient.get()
-            .uri("/playlist/$id")
-            .exchange()
-            .expectStatus().is4xxClientError
+        webTestClient.get().uri("/playlist/$id").exchange().expectStatus().is4xxClientError
     }
 
 }
