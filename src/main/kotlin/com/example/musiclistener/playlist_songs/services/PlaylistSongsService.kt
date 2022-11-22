@@ -19,18 +19,22 @@ class PlaylistSongsService(
     fun getSongsId(playlistId: Int): Flux<Int> {
         return playlistSongsRepository
             .findAllByPlaylistId(playlistId)
-            .switchIfEmpty(Mono.error(
-                NotFoundException("User with $playlistId not found")
-            ))
+            .switchIfEmpty(
+                Mono.error(
+                    NotFoundException("User with $playlistId not found")
+                )
+            )
             .map { it.songId }
     }
 
     fun deleteSongFromPlaylist(playlistId: Int, songId: Int): Mono<Void> {
-        return  playlistSongsRepository
+        return playlistSongsRepository
             .findByPlaylistIdAndSongId(playlistId, songId)
-            .switchIfEmpty(Mono.error(
-                NotFoundException("Song with song id: $songId not found")
-            ))
-            .flatMap{data -> playlistSongsRepository.delete(data)}
+            .switchIfEmpty(
+                Mono.error(
+                    NotFoundException("Song with song id: $songId not found")
+                )
+            )
+            .flatMap { data -> playlistSongsRepository.delete(data) }
     }
 }

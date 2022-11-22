@@ -1,68 +1,44 @@
 package com.example.musiclistener.test
-
-import com.example.musiclistener.playlist.model.MusicPlayerModel
-import com.example.musiclistener.playlist.model.PlaylistWithSongs
 import com.example.musiclistener.playlist.services.PlaylistService
-import com.fasterxml.jackson.databind.ObjectMapper
-import io.mockk.every
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.context.ApplicationContext
 import org.springframework.test.web.reactive.server.WebTestClient
-import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.ValueSource
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
-import org.springframework.boot.test.web.client.postForEntity
-import org.springframework.core.ParameterizedTypeReference
-import org.springframework.http.HttpMethod
-import org.springframework.http.MediaType
-import org.springframework.http.RequestEntity
-import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.get
-import reactor.core.publisher.Mono
-import java.net.URI
-import java.net.URL
-import java.time.Instant
-import java.time.temporal.ChronoUnit.MILLIS
-import java.util.*
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class PlaylistControllerTest{
+class PlaylistControllerTest {
 
     @Autowired
-    lateinit var playlistService:PlaylistService
+    lateinit var playlistService: PlaylistService
 
     @Autowired
     private lateinit var webTestClient: WebTestClient
 
     @BeforeEach
     fun initClient(context: ApplicationContext) {
-        webTestClient = WebTestClient
-            .bindToApplicationContext(context)
-            .build()
+        webTestClient = WebTestClient.bindToApplicationContext(context).build()
     }
 
     @Test
     fun whenRequestToGetPlaylistWithValidPlaylistId_thenStatusShouldBeOk() {
         val id = 2
-        webTestClient.get().uri("/playlist/$id")
+        webTestClient.get()
+            .uri("/playlist/$id")
             .exchange()
             .expectStatus().isOk
     }
 
     @Test
-    fun whenRequestToGetPlaylistWithInvalidPlaylistId_thenStatusShouldBe404PageNotFoundError(){
+    fun whenRequestToGetPlaylistWithInvalidPlaylistId_thenStatusShouldBe404PageNotFoundError() {
         val id = 9
-        webTestClient.get().uri("/playlist/$id")
+        webTestClient.get()
+            .uri("/playlist/$id")
             .exchange()
             .expectStatus().is4xxClientError
-
     }
 
 }

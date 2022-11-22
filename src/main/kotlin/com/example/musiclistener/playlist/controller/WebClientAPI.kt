@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono
 class WebClientAPI {
 
     //create web client instance
-    private val webClient:WebClient = WebClient.create("http://localhost:8081")
+    private val webClient: WebClient = WebClient.create("http://localhost:8081")
 
     //prepare request
 
@@ -21,15 +21,15 @@ class WebClientAPI {
             .uri("/songs")
             .retrieve()
             .bodyToFlux(MusicPlayerModel::class.java)
-            .doOnNext{ println("inside getAllSongs: $it") }
+            .doOnNext { println("inside getAllSongs: $it") }
     }
 
     fun getSongById(id: Int): Mono<MusicPlayerModel> {
         return webClient
             .get()
-            .uri("/songs/{id}",id)
+            .uri("/songs/{id}", id)
             .retrieve()
             .bodyToMono(MusicPlayerModel::class.java)
-            .doOnNext{ println("inside getSongsById: $it") }
+            .doOnNext { println("inside getSongsById: $it") }
     }
 }

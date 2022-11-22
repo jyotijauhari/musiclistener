@@ -1,4 +1,5 @@
 package com.example.musiclistener
+
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
@@ -7,5 +8,5 @@ import org.springframework.boot.runApplication
 class MusiclistenerApplication
 
 fun main(args: Array<String>) {
-	runApplication<MusiclistenerApplication>(*args)
+    runApplication<MusiclistenerApplication>(*args)
 }

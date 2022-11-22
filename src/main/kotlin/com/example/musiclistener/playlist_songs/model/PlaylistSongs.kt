@@ -6,7 +6,7 @@ import org.springframework.data.relational.core.mapping.Table
 @Table
 data class PlaylistSongs(
     @Id
-    val id: Int? ,
+    val id: Int?,
     val playlistId: Int,
     val songId: Int
 )
