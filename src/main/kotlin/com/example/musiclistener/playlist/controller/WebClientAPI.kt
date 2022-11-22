@@ -1,10 +1,12 @@
 package com.example.musiclistener.playlist.controller
 
 import com.example.musiclistener.playlist.model.MusicPlayerModel
+import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
+@Component
 class WebClientAPI {
 
     //create web client instance
