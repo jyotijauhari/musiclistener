@@ -1,4 +1,5 @@
 package com.example.musiclistener.playlist.services
+
 import com.example.musiclistener.playlist.controller.WebClientAPI
 import com.example.musiclistener.playlist.model.*
 import com.example.musiclistener.playlist.repository.PlaylistRepository
@@ -10,13 +11,11 @@ import reactor.core.publisher.Mono
 
 @Service
 class PlaylistService(
-    val playlistRepository: PlaylistRepository,
-    val playlistSongsService: PlaylistSongsService
+    val playlistRepository: PlaylistRepository, val playlistSongsService: PlaylistSongsService
 ) {
-     fun getAllPlaylist(): Flux<Playlist> {
+    fun getAllPlaylist(): Flux<Playlist> {
         return playlistRepository.findAll()
     }
-
 
     fun getPlaylistDetails(playlistId: Int): Mono<PlaylistWithSongs> {
         val songIds = playlistSongsService.getSongsId(playlistId)
@@ -29,16 +28,15 @@ class PlaylistService(
     }
 
     fun getPlaylistById(playlistId: Int): Mono<Playlist> {
-        return playlistRepository
-            .findById(playlistId)
-            .switchIfEmpty(Mono.error(
+        return playlistRepository.findById(playlistId).switchIfEmpty(
+            Mono.error(
                 NotFoundException("Playlist with playlist id : $playlistId not found")
-            ))
+            )
+        )
     }
 
     fun deleteSongFromPlaylist(playlistId: Int, songId: Int): Mono<Void> {
-        return getPlaylistById(playlistId)
-            .flatMap { playlistSongsService.deleteSongFromPlaylist(playlistId, songId) }
+        return getPlaylistById(playlistId).flatMap { playlistSongsService.deleteSongFromPlaylist(playlistId, songId) }
     }
 
 }

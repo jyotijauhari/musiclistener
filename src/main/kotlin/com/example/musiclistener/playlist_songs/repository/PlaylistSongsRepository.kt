@@ -8,12 +8,12 @@ import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
 @Repository
-interface PlaylistSongsRepository : ReactiveCrudRepository<PlaylistSongs,Int> {
+interface PlaylistSongsRepository : ReactiveCrudRepository<PlaylistSongs, Int> {
 
     @Query("select * from playlist_songs where playlist_id=?")
-    fun findSongIdsByPlaylistId(pid:Int): Flux<PlaylistSongs>
+    fun findSongIdsByPlaylistId(pid: Int): Flux<PlaylistSongs>
 
-    fun findAllByPlaylistId(playlistId: Int) : Flux<PlaylistSongs>
+    fun findAllByPlaylistId(playlistId: Int): Flux<PlaylistSongs>
     fun findByPlaylistIdAndSongId(playlistId: Int, songId: Int): Mono<PlaylistSongs>
 
 }

@@ -1,4 +1,5 @@
 package com.example.musiclistener.playlist.controller
+
 import com.example.musiclistener.playlist.model.Playlist
 import com.example.musiclistener.playlist.model.PlaylistWithSongs
 import com.example.musiclistener.playlist.services.PlaylistService
@@ -18,14 +19,14 @@ class PlaylistController(
     }
 
     @GetMapping("/{id}")
-    fun getPlaylistDetails(@PathVariable id:Int): Mono<PlaylistWithSongs> {
-         return playlistService.getPlaylistDetails(id)
+    fun getPlaylistDetails(@PathVariable id: Int): Mono<PlaylistWithSongs> {
+        return playlistService.getPlaylistDetails(id)
     }
 
     @DeleteMapping("/{id}/{songId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deleteSongFromPlaylist(@PathVariable id: Int, @PathVariable songId: Int): Mono<Void> {
-       return playlistService.deleteSongFromPlaylist(id, songId)
+        return playlistService.deleteSongFromPlaylist(id, songId)
     }
 
 }

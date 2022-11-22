@@ -14,7 +14,7 @@ import org.springframework.test.web.reactive.server.WebTestClient
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class PlaylistSongsControllerTest{
+class PlaylistSongsControllerTest {
     @Autowired
     lateinit var webTestClient: WebTestClient
 
@@ -31,7 +31,6 @@ class PlaylistSongsControllerTest{
             .uri("/playlistsong")
             .exchange()
             .expectStatus().is2xxSuccessful
-
     }
 
     @Test
@@ -40,6 +39,5 @@ class PlaylistSongsControllerTest{
             .uri("/playlistsongg")
             .exchange()
             .expectStatus().is4xxClientError
-
     }
 }
